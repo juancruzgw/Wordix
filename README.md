@@ -12,3 +12,4 @@ universidad nacional del comahue
 ** Lucio Martinez**
 ** Sebastián Antueno**
 ** Integrante 5 **
+** Integrante 6**
