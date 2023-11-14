@@ -7,8 +7,18 @@ include_once("wordix.php");
 /***** DATOS DE  LOS INTEGRANTES *******/
 /**************************************/
 
-/* Apellido, Nombre. Legajo. Carrera. mail. Usuario Github */
-/* ****COMPLETAR***** */
+
+/* 
+Apellido, Nombre            **   Legajo   **   Carrera  **               Correo                  **   Usuario Github
+----------------------------**------------**------------**---------------------------------------**------------------
+Antueno, Pablo Sebastián    **  FAI-4973  **    TUDW    **  pablo.antueno@est.fi.uncoma.edu.ar   **   /psantueno
+----------------------------**------------**------------**---------------------------------------**------------------
+Geslowski, Juan Cruz        **  <legajo>  **    TUDW    **  juan.geslowski@est.fi.uncoma.edu.ar  **   /jcg
+----------------------------**------------**------------**---------------------------------------**------------------
+Martinez, Lucio             **  <legajo>  **    TUDW    **  lucio.martinez@est.fi.uncoma.edu.ar  **   /luciomartinez
+----------------------------**------------**------------**---------------------------------------**------------------
+*/
+
 
 
 /**************************************/
