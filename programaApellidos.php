@@ -15,7 +15,7 @@ Antueno, Pablo Sebastián    **  FAI-4973  **    TUDW    **  pablo.antueno@est.f
 ----------------------------**------------**------------**---------------------------------------**------------------
 Geslowski, Juan Cruz        **  <legajo>  **    TUDW    **  juan.geslowski@est.fi.uncoma.edu.ar  **   /jcg
 ----------------------------**------------**------------**---------------------------------------**------------------
-Martinez, Lucio             **  <legajo>  **    TUDW    **  lucio.martinez@est.fi.uncoma.edu.ar  **   /luciomartinez
+Martinez Sepulveda, Lucio D **  FAI-4901  **    TUDW    **  lucio.martinez@est.fi.uncoma.edu.ar  **   /luciomartinez
 ----------------------------**------------**------------**---------------------------------------**------------------
 */
 
