@@ -11,6 +11,7 @@ universidad nacional del comahue
 ** Juan Cruz Geslowski 
 ** Lucio Martinez**
 ** Sebastián Antueno**
-** Integrante 5 **
-** Integrante 6**
-** integrante 7 **
+
+# Link a hoja de Excel con la representación de estructuras
+
+---> https://docs.google.com/spreadsheets/d/1nK23RighwGttJMHsXnPKFANS0sQoiedVILfcwqIQ_9g/edit#gid=0
