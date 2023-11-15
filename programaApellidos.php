@@ -13,7 +13,7 @@ Apellido, Nombre            **   Legajo   **   Carrera  **               Correo 
 ----------------------------**------------**------------**---------------------------------------**------------------
 Antueno, Pablo Sebastián    **  FAI-4973  **    TUDW    **  pablo.antueno@est.fi.uncoma.edu.ar   **   /psantueno
 ----------------------------**------------**------------**---------------------------------------**------------------
-Geslowski, Juan Cruz        **  <legajo>  **    TUDW    **  juan.geslowski@est.fi.uncoma.edu.ar  **   /jcg
+Geslowski, Juan Cruz        **  FAI 4881  **    TUDW    **  juan.geslowski@est.fi.uncoma.edu.ar  **   /juancruzgw
 ----------------------------**------------**------------**---------------------------------------**------------------
 Martinez Sepulveda, Lucio D **  FAI-4901  **    TUDW    **  lucio.martinez@est.fi.uncoma.edu.ar  **   /luciomartinez
 ----------------------------**------------**------------**---------------------------------------**------------------
