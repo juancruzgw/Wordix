@@ -27,12 +27,14 @@ const ESTADO_LETRA_PERTENECE = "pertenece";
 /**************************************/
 
 /**
- *  ****COMPLETAR*****
+ * Solicita un número de palabra para jugar wordix verificando que se encuentre en el rango disponible.
+ * @param int $min
+ * @param int $max
+ * @param int $numero
+ * @return int
  */
-function solicitarNumeroEntre($min, $max)
-{
-    //int $numero
-
+function solicitarNumeroEntre($min, $max) {
+    
     $numero = trim(fgets(STDIN));
 
     if (is_numeric($numero)) { //determina si un string es un número. puede ser float como entero.
@@ -120,7 +122,8 @@ function escribirSegunEstado($texto, $estado)
 }
 
 /**
- * ****COMPLETAR*****
+ * Escribe un mensaje de bienvenida en pantalla y resalta el nombre del jugador con color amarillo.
+ * @param string $usuario
  */
 function escribirMensajeBienvenida($usuario)
 {
@@ -327,15 +330,69 @@ function esIntentoGanado($estructuraPalabraIntento)
     return $ganado;
 }
 
-/**
- * ****COMPLETAR***** documentación de la intefaz
- */
-function obtenerPuntajeWordix()  /* ****COMPLETAR***** parámetros formales necesarios */
-{
 
-    /* ****COMPLETAR***** cuerpo de la función*/
-    return 0;
+/**
+ * Obtiene el puntaje de una palabra Wordix adivinada.
+ * @param string $palabraWordix
+ * @param int $intentos
+ * @return int
+ */
+function obtenerPuntajeWordix($palabraWordix, $intentos)
+{
+    $puntaje = 0;
+
+    // Calcular puntaje según cantidad de intentos
+    if ($intentos <= 6) {
+        $puntaje += (7 - $intentos);
+    }
+
+    // Calcular puntaje según letras de la palabra Wordix
+    $letras = str_split(strtoupper($palabraWordix));
+
+    foreach ($letras as $letra) {
+        if (ctype_alpha($letra)) {
+            $valorLetra = obtenerValorLetra($letra);
+            $puntaje += $valorLetra;
+        }
+    }
+
+    return $puntaje;
 }
+
+
+/**
+ * Obtiene el valor de las letras que componen la palabra Wordix adivinada, seguún las reglas especificadas.
+ * @param string $letra
+ * @return int 
+ */
+
+function obtenerValorLetra($letra)
+{
+    $letra = strtoupper($letra);
+    $vocales = ['A', 'E', 'I', 'O', 'U'];
+    $valorVocal = 1;
+    $valorConsonanteAntesM = 2;
+    $valorConsonanteDespuesM = 3;
+
+    // Verificar si la letra es una vocal
+    $esVocal = false;
+    foreach ($vocales as $vocal) {
+        if (strtoupper($letra) === $vocal) {
+            $esVocal = true;
+            break;
+        }
+    }
+
+    if ($esVocal) {
+        return $valorVocal;
+    } elseif (ord($letra) <= ord('M')) {
+        return $valorConsonanteAntesM;
+    } else {
+        return $valorConsonanteDespuesM;
+    }
+}
+
+
 
 /**
  * Dada una palabra para adivinar, juega una partida de wordix intentando que el usuario adivine la palabra.
@@ -369,12 +426,12 @@ function jugarWordix($palabraWordix, $nombreUsuario)
 
     if ($ganoElIntento) {
         $nroIntento--;
-        $puntaje = obtenerPuntajeWordix();
-        echo "Adivinó la palabra Wordix en el intento " . $nroIntento . "!: " . $palabraIntento . " Obtuvo $puntaje puntos!";
+        $puntaje = obtenerPuntajeWordix($palabraWordix, $nroIntento);
+        echo "Adivinó la palabra Wordix en el intento " . $nroIntento . "!: " . $palabraIntento . " Obtuvo $puntaje puntos! \n";
     } else {
         $nroIntento = 0; //reset intento
         $puntaje = 0;
-        echo "Seguí Jugando Wordix, la próxima será! ";
+        echo "Seguí Jugando Wordix, la próxima será! \n";
     }
 
     $partida = [
@@ -385,4 +442,24 @@ function jugarWordix($palabraWordix, $nombreUsuario)
     ];
 
     return $partida;
+}
+
+
+/**
+ * Solicita un número de palabra para jugar wordix.
+ * @param string $usuario
+ * @return string
+ */
+function solicitarJugador() {
+
+    do {
+        echo "Ingrese el nombre del jugador: \n";
+        $usuario = strtolower(trim(fgets(STDIN)));
+
+        if (!ctype_alpha($usuario[0])) {
+            echo "El nombre debe comenzar con una letra. Inténtelo nuevamente.\n";
+        }
+    } while (!ctype_alpha($usuario[0]));
+
+    return $usuario;
 }
