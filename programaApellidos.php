@@ -42,6 +42,34 @@ function cargarColeccionPalabras()
 }
 
 
+/**
+ * Obtiene una colección de partidas
+ * @return array
+ */
+function cargarPartidas()
+{
+    $coleccionPartidas = [
+
+        ["palabraWordix" => "CASAS", "jugador" => "juan", "intentos" => 4, "puntaje" => 13],
+        ["palabraWordix" => "LAPIZ", "jugador" => "lucas", "intentos" => 5, "puntaje" => 12],
+        ["palabraWordix" => "CEBRA", "jugador" => "estefi", "intentos" => 6, "puntaje" => 10],
+        ["palabraWordix" => "YUYOS", "jugador" => "pao", "intentos" => 3, "puntaje" => 15],
+        ["palabraWordix" => "HUEVO", "jugador" => "juan", "intentos" => 2, "puntaje" => 13],
+        ["palabraWordix" => "QUESO", "jugador" => "pao", "intentos" => 2, "puntaje" => 14],
+        ["palabraWordix" => "PISOS", "jugador" => "felix", "intentos" => 4, "puntaje" => 12],
+        ["palabraWordix" => "NAVES", "jugador" => "juan", "intentos" => 1, "puntaje" => 17],
+        ["palabraWordix" => "FUEGO", "jugador" => "sofi", "intentos" => 3, "puntaje" => 11],
+        ["palabraWordix" => "DELTA", "jugador" => "alejo", "intentos" => 5, "puntaje" => 11],
+        ["palabraWordix" => "TINTO", "jugador" => "rama", "intentos" => 4, "puntaje" => 14],
+        ["palabraWordix" => "GATOS", "jugador" => "tania", "intentos" => 1, "puntaje" => 16],
+        ["palabraWordix" => "RASGO", "jugador" => "lucio", "intentos" => 6, "puntaje" => 11],
+        ["palabraWordix" => "MUJER", "jugador" => "seba", "intentos" => 4, "puntaje" => 12],
+    ];
+
+    return ($coleccionPartidas);
+}
+
+
 /* ****COMPLETAR***** */
 
 
@@ -66,21 +94,8 @@ $coleccionPalabras = cargarColeccionPalabras();
 
 
 do {
-    echo "**************************************************************************************\n";
-    echo "| Bienvenido al menú de opciones, por favor ingresá el número de la opción deseada:  |\n";
-    echo "**************************************************************************************\n";
 
-    echo "1) Jugar al Wordix con una palabra elegida.\n";
-    echo "2) Jugar al Wordix con una palabra aleatoria.\n";
-    echo "3) Mostrar una partida.\n";
-    echo "4) Mostrar la primer partida ganadora.\n";
-    echo "5) Mostrar resumen de Jugador.\n";
-    echo "6) Mostrar listado de partidas ordenadas por jugador y por palabra.\n";
-    echo "7) Agregar una palabra de 5 letras a Wordix.\n";
-    echo "8) Salir.\n";
-
-
-    $opcion = fgets(STDIN);
+    $opcion = seleccionarOpción();
 
     switch ($opcion) {
 
