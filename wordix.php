@@ -136,7 +136,7 @@ function escribirMensajeBienvenida($usuario)
 
 
 /**
- * ****COMPLETAR*****
+ * ****COMPLETAR***** Y VER SI NO REEMPLAZA A LA FX YA CREADA(verifica si el primer caracter es una letra)
  */
 function esPalabra($cadena)
 {
@@ -405,7 +405,6 @@ function jugarWordix($palabraWordix, $nombreUsuario)
     /*Inicialización*/
     $arregloDeIntentosWordix = [];
     $teclado = iniciarTeclado();
-    escribirMensajeBienvenida($nombreUsuario);
     $nroIntento = 1;
     do {
 
@@ -463,3 +462,36 @@ function solicitarJugador() {
 
     return $usuario;
 }
+
+/**
+ * Solicita un número de palabra para jugar wordix.
+ * @param int $opcion
+ * @return int
+ */
+
+function seleccionarOpción() {
+
+    echo "\n**************************************\n";
+    echo "** Bienvenido al menú de opciones:  **\n";
+    echo "**************************************\n";
+
+    echo "1) Jugar al Wordix con una palabra elegida.\n";
+    echo "2) Jugar al Wordix con una palabra aleatoria.\n";
+    echo "3) Mostrar una partida.\n";
+    echo "4) Mostrar la primer partida ganadora.\n";
+    echo "5) Mostrar resumen de Jugador.\n";
+    echo "6) Mostrar listado de partidas ordenadas por jugador y por palabra.\n";
+    echo "7) Agregar una palabra de 5 letras a Wordix.\n";
+    echo "8) Salir.\n";
+
+    do {
+        echo " \nPor favor, ingrese el número de la opción deseada: \n";
+        $opcion = trim(fgets(STDIN));
+
+        if (!( $opcion >= 1 AND $opcion <= 8 )) {
+            echo "El número ingresado no es una opción válida. Elija una opción entre 1 (uno) y 8 (ocho).\n";
+        }
+    } while (!( $opcion >= 1 AND $opcion <= 8 ));
+
+    return $opcion;
+} 
