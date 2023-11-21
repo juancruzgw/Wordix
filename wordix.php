@@ -136,7 +136,7 @@ function escribirMensajeBienvenida($usuario)
 
 
 /**
- * ****COMPLETAR*****
+ * ****COMPLETAR***** Y VER SI NO REEMPLAZA A LA FX YA CREADA(verifica si el primer caracter es una letra)
  */
 function esPalabra($cadena)
 {
@@ -405,7 +405,6 @@ function jugarWordix($palabraWordix, $nombreUsuario)
     /*Inicialización*/
     $arregloDeIntentosWordix = [];
     $teclado = iniciarTeclado();
-    escribirMensajeBienvenida($nombreUsuario);
     $nroIntento = 1;
     do {
 
@@ -472,9 +471,9 @@ function solicitarJugador() {
 
 function seleccionarOpción() {
 
-    echo "\n************************************\n";
-    echo "| Bienvenido al menú de opciones:  |\n";
-    echo "************************************\n";
+    echo "\n**************************************\n";
+    echo "** Bienvenido al menú de opciones:  **\n";
+    echo "**************************************\n";
 
     echo "1) Jugar al Wordix con una palabra elegida.\n";
     echo "2) Jugar al Wordix con una palabra aleatoria.\n";

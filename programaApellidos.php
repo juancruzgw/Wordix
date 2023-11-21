@@ -43,10 +43,10 @@ function cargarColeccionPalabras()
 
 
 /**
- * Obtiene una colección de partidas
+ * Obtiene una colección de partidas jugadas
  * @return array
  */
-function cargarPartidas()
+function cargarColeccionPartidas()
 {
     $coleccionPartidas = [
 
@@ -67,6 +67,17 @@ function cargarPartidas()
     ];
 
     return ($coleccionPartidas);
+}
+
+
+function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
+{
+    foreach ($coleccionPartidas as $partida) {
+        if ($partida["palabraWordix"] == $palabraElegida && $partida["jugador"] == $jugador) {
+            return true; // La palabra ya fue utilizada por el jugador
+        }
+    }
+    return false; // La palabra no fue utilizada por el jugador
 }
 
 
@@ -91,6 +102,7 @@ function cargarPartidas()
 //imprimirResultado($partida);
 
 $coleccionPalabras = cargarColeccionPalabras();
+$coleccionPartidas = cargarColeccionPartidas();
 
 
 do {
@@ -100,16 +112,28 @@ do {
     switch ($opcion) {
 
         case 1:
-            // completar qué secuencia de pasos ejecutar si el usuario elige la opción 1
+    
             $usuario = solicitarJugador();
             escribirMensajeBienvenida($usuario);
 
-            echo "Seleccione un número de palabra para jugar (entre 1 y " . count($coleccionPalabras) . "): \n";
-            $numero = solicitarNumeroEntre(1, count($coleccionPalabras));
+            do {
+                echo "\nSeleccione un número de palabra para jugar (entre 1 y " . count($coleccionPalabras) . "): \n";
+                $numero = solicitarNumeroEntre(1, count($coleccionPalabras));
 
-            $palabraElegida = $coleccionPalabras[$numero - 1];
+                $palabraElegida = $coleccionPalabras[$numero - 1];
+
+                $palabraYaUtilizada = palabraYaUtilizada($palabraElegida, $usuario, $coleccionPartidas);
+
+                if ($palabraYaUtilizada) {
+                    echo "La palabra ya fue utilizada por el jugador. Elija otra palabra.\n";
+                }
+            } while ($palabraYaUtilizada);
 
             $partida = jugarWordix($palabraElegida, $usuario);
+
+            $coleccionPartidas = [...$coleccionPartidas, $partida];
+
+            print_r($coleccionPartidas);
 
             break;
 
