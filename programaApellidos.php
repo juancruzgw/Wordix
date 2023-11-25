@@ -81,6 +81,53 @@ function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
 }
 
 
+/**
+ * Almacena una partida en la coleccion de partidas.
+ * @param array $partidaParaGuardar
+ * @param array $coleccionPartidas
+ * @return array Devuelve un array con todas las partidas guardadas.
+ */
+function guardarPartida($partidaParaGuardar, $coleccionPartidas)
+{
+    $coleccionPartidas = [...$coleccionPartidas, $partidaParaGuardar];
+    echo "\nLa partida se ha guardado correctamente.\n";
+    return $coleccionPartidas;
+}
+
+
+/**
+ * Elige una palabra aleatoria de coleccionPalabras y verifica si el jugador ya jugó con esa palabra.
+ * @param array $coleccionPalabras
+ * @param array $coleccionPartidas
+ * @param string $jugador
+ * @return string|[] Devuelve la palabra seleccionada o un arreglo vacío si el jugador ya jugó con todas las palabras.
+ */
+function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador)
+{
+
+    $palabrasJugadas = [];
+    $palabrasDisponibles = [];
+
+
+    foreach ($coleccionPartidas as $partida) {
+                if ($partida['jugador'] === $jugador) {
+                    $palabrasJugadas[] = $partida['palabraWordix'];
+                }
+    }
+
+    $palabrasDisponibles = array_diff($coleccionPalabras, $palabrasJugadas);
+
+    if (count($palabrasDisponibles) > 0) {
+        $palabraSeleccionada = $palabrasDisponibles[array_rand($palabrasDisponibles)];
+    } else {
+        $palabraSeleccionada = null;
+    }
+
+    return $palabraSeleccionada;
+}
+
+
+
 /* ****COMPLETAR***** */
 
 
@@ -131,14 +178,33 @@ do {
 
             $partida = jugarWordix($palabraElegida, $usuario);
 
-            $coleccionPartidas = [...$coleccionPartidas, $partida];
+            $partidasGuardadas = guardarPartida($partidaParaGuardar, $coleccionPartidas);
 
-            print_r($coleccionPartidas);
+            print_r($partidasGuardadas);
 
             break;
 
         case 2:
-            // completar qué secuencia de pasos ejecutar si el usuario elige la opción 2
+
+            $usuario = solicitarJugador();
+            escribirMensajeBienvenida($usuario);
+            
+            $palabraAleatoria = elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $usuario);
+
+            if (!$palabraAleatoria) {
+                echo "\n/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////";
+                echo "\n//  Estimado jugador, ya no quedan palabras disponibles para jugar. Pronto actualizaremos nuestra base de datos. Le pedimos disculpas.    //\n";
+                echo "//  Atte.                                                                                                                                //\n";
+                echo "//  EQUIPO DE DESARROLLO.                                                                                                               //\n";
+                echo "/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n";
+                break;
+            }
+
+            $partida = jugarWordix($palabraAleatoria, $usuario);
+
+            $partidasGuardadas = guardarPartida($partida, $coleccionPartidas);
+
+            print_r($partidasGuardadas);
 
             break;
 
