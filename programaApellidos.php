@@ -147,6 +147,7 @@ function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador
 /**
  * Muestra los detalles de una partida específica.
  * @param int $nroPartida
+ * @param int $indice
  * @param array $coleccionPartidas
  */
 function mostrarPartida($nro, $coleccionPartidas)
