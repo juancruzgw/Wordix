@@ -273,8 +273,13 @@ do {
                 echo "\nIngrese el número de partida: ";
                 $nroPartida = trim(fgets(STDIN));  
                 mostrarPartida($nroPartida, $coleccionPartidas);
-                echo "\nQuiere ver otra partida?";
-                $interactivo = trim(fgets(STDIN));
+                echo "\n¿Desea ver otra partida? (SI/NO)";
+                $interactivo = strtoupper(trim(fgets(STDIN)));
+                if ($interactivo != "SI" && $interactivo != "NO") {
+                    echo "RESPUESTA NO VALIDA. Ingrese 'SI: si desea ver otra partina \n NO: si desea volver al menu principal. \n'";
+                    $interactivo = strtoupper(trim(fgets(STDIN)));
+                }
+
             } while (strtoupper($interactivo) === "SI");
 
             break;
