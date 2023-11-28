@@ -257,11 +257,16 @@ do {
 
         case 3:
 
-            echo "\nIngrese el número de partida: ";
-            $nroPartida = trim(fgets(STDIN));
-            mostrarPartida($nroPartida, $coleccionPartidas);
-            break;
+            do {
+                echo "\nIngrese el número de partida: ";
+                $nroPartida = trim(fgets(STDIN));  
+                mostrarPartida($nroPartida, $coleccionPartidas);
+                echo "\nQuiere ver otra partida?";
+                $interactivo = trim(fgets(STDIN));
+            } while (strtoupper($interactivo) === "SI");
 
+            break;
+            
         case 8:
             echo "Saliendo del programa. ¡Hasta la próxima! \n";
             break;
