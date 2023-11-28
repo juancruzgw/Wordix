@@ -1,5 +1,5 @@
 <?php
-include_once("wordix.php");
+include_once ("wordix.php");
 
 
 
@@ -25,12 +25,14 @@ Martinez Sepulveda, Lucio D **  FAI-4901  **    TUDW    **  lucio.martinez@est.f
 /***** DEFINICION DE FUNCIONES ********/
 /**************************************/
 
-/**
- * Obtiene una colección de palabras
+/** ***COMPLETADO***
+ * Obtiene una colección de palabras (estructura de 20 palabras)
  * @return array
  */
 function cargarColeccionPalabras()
+
 {
+    // array $coleccionPalabras
     $coleccionPalabras = [
         "MUJER", "QUESO", "FUEGO", "CASAS", "RASGO",
         "GATOS", "GOTAS", "HUEVO", "TINTO", "NAVES",
@@ -42,12 +44,13 @@ function cargarColeccionPalabras()
 }
 
 
-/**
- * Obtiene una colección de partidas jugadas
+/** ***Completado***
+ * Almacena valores de partidas jugadas (estructura de tipo asociativo)
  * @return array
  */
 function cargarColeccionPartidas()
 {
+    //array $coleccionPartidas
     $coleccionPartidas = [
 
         ["palabraWordix" => "CASAS", "jugador" => "juan", "intentos" => 4, "puntaje" => 13],
@@ -70,6 +73,7 @@ function cargarColeccionPartidas()
 }
 
 
+
 /**
  * jugador, partidas, puntaje, victorias, intento1, intento2, intento3, intento4, intento5, intento6.
  * Obtiene una colección resumenes de jugadores
@@ -86,8 +90,16 @@ function cargarColeccionResumenDeJugador()
 }
 
 
+  /** ***COMPLETADO***
+ * averigua si la palabra fue utilizada anteriormente
+ * @param string $palabraElegida
+ * @param string $jugador
+ * @param string $coleccionPartida
+ * @return boolean
+ */
 function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
 {
+    //
     foreach ($coleccionPartidas as $partida) {
         if ($partida["palabraWordix"] == $palabraElegida && $partida["jugador"] == $jugador) {
             return true; // La palabra ya fue utilizada por el jugador
@@ -97,7 +109,7 @@ function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
 }
 
 
-/**
+/** ***COMPLETADO***
  * Almacena una partida en la coleccion de partidas.
  * @param array $partidaParaGuardar
  * @param array $coleccionPartidas
@@ -120,7 +132,7 @@ function guardarPartida($partidaParaGuardar, $coleccionPartidas)
  */
 function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador)
 {
-
+    // array $palabrasJugadas, $palabrasDisponibles
     $palabrasJugadas = [];
     $palabrasDisponibles = [];
 
