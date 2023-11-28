@@ -64,7 +64,7 @@ function cargarColeccionPartidas()
         ["palabraWordix" => "FUEGO", "jugador" => "sofi", "intentos" => 3, "puntaje" => 11],
         ["palabraWordix" => "DELTA", "jugador" => "alejo", "intentos" => 5, "puntaje" => 11],
         ["palabraWordix" => "TINTO", "jugador" => "rama", "intentos" => 4, "puntaje" => 14],
-        ["palabraWordix" => "GATOS", "jugador" => "tania", "intentos" => 1, "puntaje" => 16],
+        ["palabraWordix" => "GATOS", "jugador" => "tania", "intentos" => 0, "puntaje" => 0],
         ["palabraWordix" => "RASGO", "jugador" => "lucio", "intentos" => 6, "puntaje" => 11],
         ["palabraWordix" => "MUJER", "jugador" => "seba", "intentos" => 4, "puntaje" => 12],
     ];
@@ -73,7 +73,24 @@ function cargarColeccionPartidas()
 }
 
 
-/** ***COMPLETADO***
+
+/**
+ * jugador, partidas, puntaje, victorias, intento1, intento2, intento3, intento4, intento5, intento6.
+ * Obtiene una colección resumenes de jugadores
+ * @return array
+ */
+function cargarColeccionResumenDeJugador()
+{
+    $coleccionResumenDeJugador = [
+
+        ["jugador" => "juan", "partidas" => 7, "puntaje" => 0, "victorias" => 4, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+    ];
+
+    return ($coleccionResumenDeJugador);
+}
+
+
+  /** ***COMPLETADO***
  * averigua si la palabra fue utilizada anteriormente
  * @param string $palabraElegida
  * @param string $jugador
@@ -139,6 +156,37 @@ function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador
 
 
 
+/**
+ * Muestra los detalles de una partida específica.
+ * @param int $nroPartida
+ * @param int $indice
+ * @param array $coleccionPartidas
+ */
+function mostrarPartida($nro, $coleccionPartidas)
+{
+    $totalPartidas = count($coleccionPartidas);
+
+    while ($nro < 1 || $nro > $totalPartidas) {
+        echo "Error: El número de partida ingresado no existe. Por favor, elija un número de partida válido entre 1 y $totalPartidas: ";
+        $nro = intval(trim(fgets(STDIN)));
+    }
+
+    $indice = $nro - 1;
+    $partida = $coleccionPartidas[$indice];
+
+    echo "\nPartida WORDIX $nro: palabra {$partida['palabraWordix']}\n";
+    echo "Jugador: {$partida['jugador']}\n";
+    echo "Puntaje: {$partida['puntaje']} puntos\n";
+
+    $intentos = $partida['intentos'];
+
+    if ($intentos != 0) {
+        echo "Intento: Adivinó la palabra en $intentos intento(s).\n";
+    } else {
+        echo "Intento: No adivinó la palabra.";
+    }
+}
+
 /* ****COMPLETAR***** */
 
 
@@ -189,7 +237,7 @@ do {
 
             $partida = jugarWordix($palabraElegida, $usuario);
 
-            $partidasGuardadas = guardarPartida($partidaParaGuardar, $coleccionPartidas);
+            $partidasGuardadas = guardarPartida($partida, $coleccionPartidas);
 
             print_r($partidasGuardadas);
 
@@ -220,10 +268,17 @@ do {
             break;
 
         case 3:
-            // completar qué secuencia de pasos ejecutar si el usuario elige la opción 3
+
+            do {
+                echo "\nIngrese el número de partida: ";
+                $nroPartida = trim(fgets(STDIN));  
+                mostrarPartida($nroPartida, $coleccionPartidas);
+                echo "\nQuiere ver otra partida?";
+                $interactivo = trim(fgets(STDIN));
+            } while (strtoupper($interactivo) === "SI");
 
             break;
-
+            
         case 8:
             echo "Saliendo del programa. ¡Hasta la próxima! \n";
             break;
