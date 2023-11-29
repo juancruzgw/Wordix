@@ -178,7 +178,7 @@ function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador
 
 /**
  * Muestra los detalles de una partida específica.
- * @param int $nroPartida
+ * @param int $nro
  * @param int $indice
  * @param array $coleccionPartidas
  */
@@ -243,6 +243,12 @@ function buscarPrimeraPartidaGanadora($jugador, $coleccionPartidas)
  */
 function mostrarEstadisticaJugador($jugador, $coleccionResumenDeJugador)
 {
+    //null $jugadorInfo
+    //boolean $jugadorEncontrado
+    //int $indice
+    //float $porcentajeVictorias
+    //string $totalPartidas, $totalPuntaje, $totalVictorias
+    //array $intentosAdivinados
     $jugadorInfo = null;
     $indice = 0;
     $jugadorEncontrado = false;
@@ -292,10 +298,11 @@ function mostrarEstadisticaJugador($jugador, $coleccionResumenDeJugador)
  * Función de comparación para ordenar por jugador y por palabra
  * @param array $partida1
  * @param array $partida2
- * @param int $resultado
+ * @return int
  */
 function compararPorJugadorPalabra($partida1, $partida2)
 {
+    //int $resultado
     // Primero, comparar por jugador usando el operador ==
     if ($partida1['jugador'] == $partida2['jugador']) {
         $resultado = 0;
@@ -333,6 +340,7 @@ function listadoOrdenadoDePartidas($coleccionPartidas)
  * Agrega una palabra de 5 letras a la colección de palabras en Wordix.
  * Utiliza la función leerPalabra5Letras para obtener la palabra del usuario.
  * @param array $coleccionPalabras
+ * @param string $nuevaPalbra
  * @return array La colección de palabras actualizada.
  */
 function agregarPalabra($coleccionPalabras, $nuevaPalabra)
