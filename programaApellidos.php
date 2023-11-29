@@ -55,6 +55,7 @@ function cargarColeccionPartidas()
 
         ["palabraWordix" => "CASAS", "jugador" => "juan", "intentos" => 4, "puntaje" => 13],
         ["palabraWordix" => "LAPIZ", "jugador" => "lucas", "intentos" => 5, "puntaje" => 12],
+        ["palabraWordix" => "PIANO", "jugador" => "pao", "intentos" => 0, "puntaje" => 0],
         ["palabraWordix" => "CEBRA", "jugador" => "estefi", "intentos" => 6, "puntaje" => 10],
         ["palabraWordix" => "YUYOS", "jugador" => "pao", "intentos" => 3, "puntaje" => 15],
         ["palabraWordix" => "HUEVO", "jugador" => "juan", "intentos" => 2, "puntaje" => 13],
@@ -174,6 +175,7 @@ function mostrarPartida($nro, $coleccionPartidas)
     $indice = $nro - 1;
     $partida = $coleccionPartidas[$indice];
 
+    echo "\n******************************************************";
     echo "\nPartida WORDIX $nro: palabra {$partida['palabraWordix']}\n";
     echo "Jugador: {$partida['jugador']}\n";
     echo "Puntaje: {$partida['puntaje']} puntos\n";
@@ -182,10 +184,48 @@ function mostrarPartida($nro, $coleccionPartidas)
 
     if ($intentos != 0) {
         echo "Intento: Adivinó la palabra en $intentos intento(s).\n";
+        echo "********************************************************\n";
     } else {
         echo "Intento: No adivinó la palabra.";
+        echo "********************************************************\n";
     }
 }
+
+
+/**
+ * Muestra la primer partida ganadora de un jugador.
+ * @param string $jugador
+ * @param array $coleccionPartidas
+ */
+function mostrarPrimerPartidaGanadora($jugador, $coleccionPartidas)
+{
+    $partidaEncontrada = false;
+    $indice = 0;
+    $totalPartidas = count($coleccionPartidas);
+
+    while (!$partidaEncontrada && $indice < $totalPartidas) {
+        $partida = $coleccionPartidas[$indice];
+
+        if ($partida['jugador'] === $jugador && $partida['puntaje'] > 0) {
+            $partidaEncontrada = true;
+            $nroPartida = $indice + 1;
+            echo "\n******************************************************";
+            echo "\nPartida WORDIX $nroPartida: palabra {$partida['palabraWordix']}\n";
+            echo "Jugador: " . $partida['jugador']."\n" ;
+            echo "Puntaje: " . $partida['puntaje'] . " puntos\n";
+            echo "Intento: Adivinó la palabra en " . $partida['intentos'] . " intento(s).\n";
+            echo "********************************************************\n";
+        }
+
+        $indice++;
+    }
+
+    if (!$partidaEncontrada) {
+        echo "\nEl jugador $jugador no ganó ninguna partida.\n";
+    }
+}
+
+
 
 /* ****COMPLETAR***** */
 
@@ -284,8 +324,28 @@ do {
                 } else if ($interactivo != "NO" && $interactivo != "SI") {
                     echo "Respuesta inválida. Ingrese 'SI' si desea ver otra partida o 'NO' si desea volver al menu principal.\n";
                 }
-                
             } while ($interactivo != "NO");
+
+            break;
+
+        case 4:
+            
+            $usuario = solicitarJugador();
+            mostrarPrimerPartidaGanadora($usuario, $coleccionPartidas);
+
+            do {
+                
+                echo "\n¿Desea consultar otra partida ganadora? (SI/NO): ";
+                 $respuesta = strtoupper(trim(fgets(STDIN)));
+        
+                if ($respuesta === "SI") {
+                    $usuario = solicitarJugador();
+                    mostrarPrimerPartidaGanadora($usuario, $coleccionPartidas);
+
+                } else if ($respuesta != "NO" && $respuesta != "SI") {
+                    echo "Respuesta inválida. Ingrese 'SI' si desea consultar otra partida ganadora o 'NO' si desea volver al menú principal.\n";
+                }
+            } while ($respuesta !== "NO");
 
             break;
 

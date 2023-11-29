@@ -473,7 +473,7 @@ function jugarWordix($palabraWordix, $nombreUsuario)
 function solicitarJugador() {
     //string $usuario
     do {
-        echo "Ingrese el nombre del jugador: \n";
+        echo "Ingrese el nombre del jugador: ";
         $usuario = strtolower(trim(fgets(STDIN)));
 
         if (!ctype_alpha($usuario[0])) {
