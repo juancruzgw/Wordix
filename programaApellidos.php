@@ -84,7 +84,22 @@ function cargarColeccionResumenDeJugador()
 {
     $coleccionResumenDeJugador = [
 
-        ["jugador" => "juan", "partidas" => 7, "puntaje" => 0, "victorias" => 4, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "juan", "partidas" => 7, "puntaje" => 55, "victorias" => 4, "intento1" => 1, "intento2" => 0, "intento3" => 2, "intento4" => 0, "intento5" => 1, "intento6" => 0],
+        ["jugador" => "pao", "partidas" => 12, "puntaje" => 153, "victorias" => 8, "intento1" => 2, "intento2" => 1, "intento3" => 3, "intento4" => 0, "intento5" => 1, "intento6" => 1],
+        ["jugador" => "lucas", "partidas" => 10, "puntaje" => 96, "victorias" => 7, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 6],
+        ["jugador" => "majo", "partidas" => 3, "puntaje" => 25, "victorias" => 1, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "felix", "partidas" => 8, "puntaje" => 47, "victorias" => 2, "intento1" => 0, "intento2" => 1, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "lucio", "partidas" => 7, "puntaje" => 119, "victorias" => 11, "intento1" => 2, "intento2" => 0, "intento3" => 3, "intento4" => 2, "intento5" => 1, "intento6" => 3],
+        ["jugador" => "seba", "partidas" => 7, "puntaje" => 68, "victorias" => 6, "intento1" => 0, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 6],
+        ["jugador" => "pepe", "partidas" => 7, "puntaje" => 88, "victorias" => 9, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 2, "intento5" => 2, "intento6" => 4],
+        ["jugador" => "rama", "partidas" => 7, "puntaje" => 130, "victorias" => 10, "intento1" => 2, "intento2" => 4, "intento3" => 2, "intento4" => 1, "intento5" => 1, "intento6" => 0],
+        ["jugador" => "tania", "partidas" => 7, "puntaje" => 215, "victorias" => 14, "intento1" => 4, "intento2" => 2, "intento3" => 3, "intento4" => 3, "intento5" => 0, "intento6" => 2],
+        ["jugador" => "tomy", "partidas" => 7, "puntaje" => 121, "victorias" => 5, "intento1" => 1, "intento2" => 3, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "oscar", "partidas" => 7, "puntaje" => 38, "victorias" => 2, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 1, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "sofi", "partidas" => 7, "puntaje" => 144, "victorias" => 13, "intento1" => 0, "intento2" => 0, "intento3" => 3, "intento4" => 1, "intento5" => 1, "intento6" => 8],
+        ["jugador" => "alejo", "partidas" => 22, "puntaje" => 105, "victorias" => 12, "intento1" => 0, "intento2" => 2, "intento3" => 3, "intento4" => 1, "intento5" => 2, "intento6" => 4],
+        ["jugador" => "anita", "partidas" => 7, "puntaje" => 77, "victorias" => 6, "intento1" => 1, "intento2" => 0, "intento3" => 1, "intento4" => 1, "intento5" => 2, "intento6" => 1],
+
     ];
 
     return ($coleccionResumenDeJugador);
@@ -211,7 +226,7 @@ function mostrarPrimerPartidaGanadora($jugador, $coleccionPartidas)
             $nroPartida = $indice + 1;
             echo "\n******************************************************";
             echo "\nPartida WORDIX $nroPartida: palabra {$partida['palabraWordix']}\n";
-            echo "Jugador: " . $partida['jugador']."\n" ;
+            echo "Jugador: " . $partida['jugador'] . "\n";
             echo "Puntaje: " . $partida['puntaje'] . " puntos\n";
             echo "Intento: Adivinó la palabra en " . $partida['intentos'] . " intento(s).\n";
             echo "********************************************************\n";
@@ -225,6 +240,50 @@ function mostrarPrimerPartidaGanadora($jugador, $coleccionPartidas)
     }
 }
 
+
+
+/**
+ * Muestra información detallada de un jugador.
+ * @param string $jugador
+ * @param array $coleccionResumenDeJugador
+ */
+function mostrarInformacionJugador($jugador, $coleccionResumenDeJugador)
+{
+    $jugadorInfo = null;
+    $indice = 0;
+
+    while ($indice < count($coleccionResumenDeJugador) && $coleccionResumenDeJugador[$indice]['jugador'] !== $jugador) {
+        $indice++;
+    }
+
+    if ($indice < count($coleccionResumenDeJugador)) {
+        $jugadorInfo = $coleccionResumenDeJugador[$indice];
+    }
+
+    if ($jugadorInfo === null) {
+        echo "El jugador $jugador no ha jugado ninguna partida.\n";
+        return;
+    }
+
+    $totalPartidas = $jugadorInfo['partidas'];
+    $totalPuntaje = $jugadorInfo['puntaje'];
+    $totalVictorias = $jugadorInfo['victorias'];
+
+    $intentosAdivinados = array_slice($jugadorInfo, 4, 6);
+    $porcentajeVictorias = ($totalVictorias / $totalPartidas) * 100;
+
+    echo "\n****************************************";
+    echo "\nJugador: $jugador\n";
+    echo "Partidas: $totalPartidas\n";
+    echo "Puntaje Total: $totalPuntaje\n";
+    echo "Victorias: $totalVictorias\n";
+    echo "Porcentaje Victorias: " . round($porcentajeVictorias, 2) . "%\n";
+    echo "Adivinadas:\n";
+    for ($i = 1; $i <= 6; $i++) {
+        echo "-Intento $i: " . ($intentosAdivinados["intento$i"] ?? 0) . "\n";
+    }
+    echo "****************************************\n";
+}
 
 
 /* ****COMPLETAR***** */
@@ -249,6 +308,7 @@ function mostrarPrimerPartidaGanadora($jugador, $coleccionPartidas)
 
 $coleccionPalabras = cargarColeccionPalabras();
 $coleccionPartidas = cargarColeccionPartidas();
+$coleccionResumenDeJugador = cargarColeccionResumenDeJugador();
 
 
 do {
@@ -329,21 +389,39 @@ do {
             break;
 
         case 4:
-            
+
             $usuario = solicitarJugador();
             mostrarPrimerPartidaGanadora($usuario, $coleccionPartidas);
 
             do {
-                
+
                 echo "\n¿Desea consultar otra partida ganadora? (SI/NO): ";
-                 $respuesta = strtoupper(trim(fgets(STDIN)));
-        
+                $respuesta = strtoupper(trim(fgets(STDIN)));
+
                 if ($respuesta === "SI") {
                     $usuario = solicitarJugador();
                     mostrarPrimerPartidaGanadora($usuario, $coleccionPartidas);
-
                 } else if ($respuesta != "NO" && $respuesta != "SI") {
                     echo "Respuesta inválida. Ingrese 'SI' si desea consultar otra partida ganadora o 'NO' si desea volver al menú principal.\n";
+                }
+            } while ($respuesta !== "NO");
+
+            break;
+
+        case 5:
+
+            $jugador = solicitarJugador();
+            mostrarInformacionJugador($jugador, $coleccionResumenDeJugador);
+
+            do {
+                echo "\n¿Desea consultar el resumen de otro jugador? (SI/NO): ";
+                $respuesta = strtoupper(trim(fgets(STDIN)));
+
+                if ($respuesta === "SI") {
+                    $jugador = solicitarJugador();
+                    mostrarInformacionJugador($jugador, $coleccionResumenDeJugador);
+                } else if ($respuesta != "NO" && $respuesta != "SI") {
+                    echo "Respuesta inválida. Ingrese 'SI' si desea consultar otro resumen o 'NO' si desea volver al menú principal.\n";
                 }
             } while ($respuesta !== "NO");
 
