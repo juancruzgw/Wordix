@@ -1,5 +1,5 @@
 <?php
-include_once ("wordix.php");
+include_once("wordix.php");
 
 
 
@@ -90,7 +90,7 @@ function cargarColeccionResumenDeJugador()
 }
 
 
-  /** ***COMPLETADO***
+/** ***COMPLETADO***
  * averigua si la palabra fue utilizada anteriormente
  * @param string $palabraElegida
  * @param string $jugador
@@ -138,9 +138,9 @@ function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador
 
 
     foreach ($coleccionPartidas as $partida) {
-                if ($partida['jugador'] === $jugador) {
-                    $palabrasJugadas[] = $partida['palabraWordix'];
-                }
+        if ($partida['jugador'] === $jugador) {
+            $palabrasJugadas[] = $partida['palabraWordix'];
+        }
     }
 
     $palabrasDisponibles = array_diff($coleccionPalabras, $palabrasJugadas);
@@ -218,7 +218,7 @@ do {
     switch ($opcion) {
 
         case 1:
-    
+
             $usuario = solicitarJugador();
             escribirMensajeBienvenida($usuario);
 
@@ -247,7 +247,7 @@ do {
 
             $usuario = solicitarJugador();
             escribirMensajeBienvenida($usuario);
-            
+
             $palabraAleatoria = elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $usuario);
 
             if (!$palabraAleatoria) {
@@ -269,21 +269,26 @@ do {
 
         case 3:
 
-            do {
-                echo "\nIngrese el número de partida: ";
-                $nroPartida = trim(fgets(STDIN));  
-                mostrarPartida($nroPartida, $coleccionPartidas);
-                echo "\n¿Desea ver otra partida? (SI/NO)";
-                $interactivo = strtoupper(trim(fgets(STDIN)));
-                if ($interactivo != "SI" && $interactivo != "NO") {
-                    echo "RESPUESTA NO VALIDA. Ingrese 'SI: si desea ver otra partina \n NO: si desea volver al menu principal. \n'";
-                    $interactivo = strtoupper(trim(fgets(STDIN)));
-                }
+            echo "\nIngrese el número de partida que desea ver: ";
+            $nroPartida = trim(fgets(STDIN));
+            mostrarPartida($nroPartida, $coleccionPartidas);
 
-            } while (strtoupper($interactivo) === "SI");
+            do {
+                echo "\n¿Desea ver otra partida? (SI/NO): ";
+                $interactivo = strtoupper(trim(fgets(STDIN)));
+
+                if ($interactivo === "SI") {
+                    echo "\nIngrese el número de partida que desea ver: ";
+                    $nroPartida = trim(fgets(STDIN));
+                    mostrarPartida($nroPartida, $coleccionPartidas);
+                } else if ($interactivo != "NO" && $interactivo != "SI") {
+                    echo "Respuesta inválida. Ingrese 'SI' si desea ver otra partida o 'NO' si desea volver al menu principal.\n";
+                }
+                
+            } while ($interactivo != "NO");
 
             break;
-            
+
         case 8:
             echo "Saliendo del programa. ¡Hasta la próxima! \n";
             break;
