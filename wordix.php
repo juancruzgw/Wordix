@@ -401,12 +401,13 @@ function obtenerValorLetra($letra)
     }
 
     if ($esVocal) {
-        return $valorVocal;
+        $resultado = $valorVocal;
     } elseif (ord($letra) <= ord('M')) {
-        return $valorConsonanteAntesM;
+        $resultado = $valorConsonanteAntesM;
     } else {
-        return $valorConsonanteDespuesM;
+        $resultado = $valorConsonanteDespuesM;
     }
+    return $resultado;
 }
 
 
@@ -506,11 +507,11 @@ function seleccionarOpción() {
     echo "8) Salir.\n";
 
     do {
-        echo " \nPor favor, ingrese el número de la opción deseada: \n";
+        echo " \nPor favor, ingrese el número de la opción deseada: ";
         $opcion = trim(fgets(STDIN));
 
         if (!( $opcion >= 1 AND $opcion <= 8 )) {
-            echo "El número ingresado no es una opción válida. Elija una opción entre 1 (uno) y 8 (ocho).\n";
+            echo "\nEl número ingresado no es una opción válida. Elija una opción entre 1 (uno) y 8 (ocho).\n";
         }
     } while (!( $opcion >= 1 AND $opcion <= 8 ));
 

@@ -92,7 +92,7 @@ function cargarColeccionResumenDeJugador()
         ["jugador" => "lucio", "partidas" => 7, "puntaje" => 119, "victorias" => 11, "intento1" => 2, "intento2" => 0, "intento3" => 3, "intento4" => 2, "intento5" => 1, "intento6" => 3],
         ["jugador" => "seba", "partidas" => 7, "puntaje" => 68, "victorias" => 6, "intento1" => 0, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 6],
         ["jugador" => "pepe", "partidas" => 7, "puntaje" => 88, "victorias" => 9, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 2, "intento5" => 2, "intento6" => 4],
-        ["jugador" => "rama", "partidas" => 7, "puntaje" => 130, "victorias" => 10, "intento1" => 2, "intento2" => 4, "intento3" => 2, "intento4" => 1, "intento5" => 1, "intento6" => 0],
+        ["jugador" => "rama", "partidas" => 7, "puntaje" => 130, "victorias" => 7, "intento1" => 2, "intento2" => 4, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
         ["jugador" => "tania", "partidas" => 7, "puntaje" => 215, "victorias" => 14, "intento1" => 4, "intento2" => 2, "intento3" => 3, "intento4" => 3, "intento5" => 0, "intento6" => 2],
         ["jugador" => "tomy", "partidas" => 7, "puntaje" => 121, "victorias" => 5, "intento1" => 1, "intento2" => 3, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
         ["jugador" => "oscar", "partidas" => 7, "puntaje" => 38, "victorias" => 2, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 1, "intento5" => 0, "intento6" => 0],
@@ -115,13 +115,16 @@ function cargarColeccionResumenDeJugador()
  */
 function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
 {
-    //
+
     foreach ($coleccionPartidas as $partida) {
         if ($partida["palabraWordix"] == $palabraElegida && $partida["jugador"] == $jugador) {
-            return true; // La palabra ya fue utilizada por el jugador
+            $rta = true;
         }
     }
-    return false; // La palabra no fue utilizada por el jugador
+
+    $rta = false;
+
+    return $rta;
 }
 
 
@@ -286,6 +289,64 @@ function mostrarInformacionJugador($jugador, $coleccionResumenDeJugador)
 }
 
 
+// Función de comparación para ordenar por jugador y palabra
+function compararPorJugadorPalabra($partida1, $partida2)
+{
+    // Primero, comparar por jugador usando el operador ==
+    if ($partida1['jugador'] == $partida2['jugador']) {
+        $resultado = 0;
+    } else if ($partida1['jugador'] < $partida2['jugador']) {
+        $resultado = -1;
+    } else {
+        $resultado = 1;
+    }
+
+    // Si los jugadores son iguales, comparar por palabra
+    if ($resultado === 0) {
+        $resultado = ($partida1['palabraWordix'] == $partida2['palabraWordix']) ? 0 : (($partida1['palabraWordix'] < $partida2['palabraWordix']) ? -1 : 1);
+    }
+    return $resultado;
+}
+
+/**
+ * Muestra el listado de partidas ordenadas alfabéticamente por jugador y por palabra.
+ * Utiliza la función uasort de PHP para ordenar la estructura.
+ * @param array $coleccionPartidas
+ */
+function listadoOrdenadoDePartidas($coleccionPartidas)
+{
+
+    // uasort — Ordena un array con una función de comparación definida por el usuario y mantiene la asociación de índices.
+    uasort($coleccionPartidas, 'compararPorJugadorPalabra');
+
+    // print_r — Imprime información legible para humanos sobre una variable
+    echo "\n***Listado ordenado por jugador y palabra***\n";
+    print_r($coleccionPartidas);
+}
+
+
+/**
+ * Agrega una palabra de 5 letras a la colección de palabras en Wordix.
+ * Utiliza la función leerPalabra5Letras para obtener la palabra del usuario.
+ * @param array $coleccionPalabras
+ * @return array La colección de palabras actualizada.
+ */
+function agregarPalabraWordix($coleccionPalabras)
+{
+    // Obtener una palabra de 5 letras del usuario
+    $nuevaPalabra = leerPalabra5Letras();
+
+    // Agregar la palabra a la colección
+    $coleccionPalabras[] = $nuevaPalabra;
+
+    echo "La palabra se ha agregado correctamente a la colección de palabras Wordix.\n";
+
+    return $coleccionPalabras;
+}
+
+
+
+
 /* ****COMPLETAR***** */
 
 
@@ -339,7 +400,7 @@ do {
 
             $partidasGuardadas = guardarPartida($partida, $coleccionPartidas);
 
-            print_r($partidasGuardadas);
+            //print_r($partidasGuardadas);
 
             break;
 
@@ -363,7 +424,7 @@ do {
 
             $partidasGuardadas = guardarPartida($partida, $coleccionPartidas);
 
-            print_r($partidasGuardadas);
+            //print_r($partidasGuardadas);
 
             break;
 
@@ -427,7 +488,30 @@ do {
 
             break;
 
+        case 6:
+
+            listadoOrdenadoDePartidas($coleccionPartidas);
+            break;
+
+        case 7:
+
+            agregarPalabraWordix($coleccionPalabras);
+
+            do {
+                echo "\n¿Desea agregar otra palabra a la colección? (SI/NO): ";
+                $respuesta = strtoupper(trim(fgets(STDIN)));
+
+                if ($respuesta === "SI") {
+                    agregarPalabraWordix($coleccionPalabras);
+                } else if ($respuesta != "NO" && $respuesta != "SI") {
+                    echo "Respuesta inválida. Ingrese 'SI' si desea agregar una nueva palabra o 'NO' si desea volver al menú principal.\n";
+                }
+            } while ($respuesta !== "NO");
+
+            break;
+
         case 8:
+
             echo "Saliendo del programa. ¡Hasta la próxima! \n";
             break;
     }
