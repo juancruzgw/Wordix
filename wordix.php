@@ -27,27 +27,26 @@ const ESTADO_LETRA_PERTENECE = "pertenece";
 /**************************************/
 
 /** ***COMPLETADO***
- * Solicita un número de palabra para jugar wordix verificando que se encuentre en el rango disponible.
+ * Solicita un número y verifica que se encuentre en el rango fijado.
  * @param int $min
  * @param int $max
  * @return int
  */
 function solicitarNumeroEntre($min, $max) {
-    //int $numero
-    
-    $numero = trim(fgets(STDIN));
+    //int $nro
+    $nro = trim(fgets(STDIN));
 
-    if (is_numeric($numero)) { //determina si un string es un número. puede ser float como entero.
-        $numero  = $numero * 1; //con esta operación convierto el string en número.
+    if (is_numeric($nro)) { //determina si un string es un número. puede ser float como entero.
+        $nro  = $nro * 1; //con esta operación convierto el string en número.
     }
-    while (!(is_numeric($numero) && (($numero == (int)$numero) && ($numero >= $min && $numero <= $max)))) {
+    while (!(is_numeric($nro) && (($nro == (int)$nro) && ($nro >= $min && $nro <= $max)))) {
         echo "Debe ingresar un número entre " . $min . " y " . $max . ": ";
-        $numero = trim(fgets(STDIN));
-        if (is_numeric($numero)) {
-            $numero  = $numero * 1;
+        $nro = trim(fgets(STDIN));
+        if (is_numeric($nro)) {
+            $nro  = $nro * 1;
         }
     }
-    return $numero;
+    return $nro;
 }
 
 /** ***COMPLETADO***
@@ -136,7 +135,7 @@ function escribirMensajeBienvenida($usuario)
 
 
 /**
- * ****COMPLETAR***** Y VER SI NO REEMPLAZA A LA FX YA CREADA(verifica si el primer caracter es una letra)
+ * ****COMPLETAR*****
  * @param string $cadena
  * @return string
  */
