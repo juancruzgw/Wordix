@@ -137,7 +137,7 @@ function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
  */
 function guardarPartida($partidaParaGuardar, $coleccionPartidas)
 {
-    $coleccionPartidas = [...$coleccionPartidas, $partidaParaGuardar];
+    $coleccionPartidas[] = $partidaParaGuardar;
     echo "\nLa partida se ha guardado correctamente.\n";
     return $coleccionPartidas;
 }
