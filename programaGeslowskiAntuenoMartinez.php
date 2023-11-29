@@ -346,35 +346,35 @@ function agregarPalabra($coleccionPalabras, $nuevaPalabra)
 
 
 
-
-/* Es un programa con un menu de opciones que permite jugar al Wordix y mostrar informacion acerca de las distintas partidas que jugaron los usuarios */
-
 /**************************************/
 /*********** PROGRAMA PRINCIPAL *******/
 /**************************************/
 
-    /* DECLARACION DE VARIABLES         
-    * $opcion INT
-    * $usuario string
-    * $numero INT
-     * $palabraElegida String
-    *$palabraYaUtilizada booleana
-    *$partidaGuardada array
-    * $palabraAleatoria string
-     *$nroPartida INT
-     *$interactivo string
-    *$indicePartida INT
-    * $respuesta string
-    *$jugador string
-    * $nuevaPalabra string*/
+/* Es un programa con un menu de opciones que permite jugar al Wordix y mostrar informacion acerca de las distintas partidas que jugaron los usuarios 
 
-// INICIALICAZION DE VARIABLES //
+-DECLARACION DE VARIABLES:
+
+$opcion INT
+$usuario string
+$numero INT
+$palabraElegida String
+$palabraYaUtilizada booleana
+$partidaGuardada array
+$palabraAleatoria string
+$nroPartida INT
+$interactivo string
+$indicePartida INT
+$respuesta string
+$jugador string
+$nuevaPalabra string
+
+*/
+
+// INICIALIZACIÓN DE VARIABLES 
 
 $coleccionPalabras = cargarColeccionPalabras();
 $coleccionPartidas = cargarColeccionPartidas();
 $coleccionResumenDeJugador = cargarColeccionResumenDeJugador();
-
-
 
 do {
 
