@@ -318,7 +318,7 @@ function actualizarTeclado($teclado, $estructuraPalabraIntento)
 /** ***COMPLETADO***
  * Determina si se ganó una palabra intento posee todas sus letras "Encontradas".
  * @param array $estructuraPalabraIntento
- * @return bool
+ * @return boolean
  */
 function esIntentoGanado($estructuraPalabraIntento)
 {
@@ -349,7 +349,7 @@ function esIntentoGanado($estructuraPalabraIntento)
  */
 function obtenerPuntajeWordix($palabraWordix, $intentos)
 {
-    //int $puntaje, 
+    //int $puntaje, $valorLetra
     //string $letras
     $puntaje = 0;
 
