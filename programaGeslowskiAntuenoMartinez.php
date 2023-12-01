@@ -73,34 +73,35 @@ function cargarColeccionPartidas()
 
 
 /**
+ * EXPLICAR POR QUE USABAMOS ESTO!!!!!!!
  * jugador, partidas, puntaje, victorias, intento1, intento2, intento3, intento4, intento5, intento6.
  * Obtiene una colección resumenes de jugadores
  * @return array
  */
-function cargarColeccionResumenDeJugador()
-{
-    $coleccionResumenDeJugador = [
+// function cargarColeccionResumenDeJugador()
+// {
+//     $coleccionResumenDeJugador = [
 
-        ["jugador" => "juan", "partidas" => 7, "puntaje" => 55, "victorias" => 4, "intento1" => 1, "intento2" => 0, "intento3" => 2, "intento4" => 0, "intento5" => 1, "intento6" => 0],
-        ["jugador" => "pao", "partidas" => 12, "puntaje" => 153, "victorias" => 8, "intento1" => 2, "intento2" => 1, "intento3" => 3, "intento4" => 0, "intento5" => 1, "intento6" => 1],
-        ["jugador" => "lucas", "partidas" => 10, "puntaje" => 96, "victorias" => 7, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 6],
-        ["jugador" => "majo", "partidas" => 3, "puntaje" => 25, "victorias" => 1, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-        ["jugador" => "felix", "partidas" => 8, "puntaje" => 47, "victorias" => 2, "intento1" => 0, "intento2" => 1, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-        ["jugador" => "lucio", "partidas" => 7, "puntaje" => 119, "victorias" => 11, "intento1" => 2, "intento2" => 0, "intento3" => 3, "intento4" => 2, "intento5" => 1, "intento6" => 3],
-        ["jugador" => "seba", "partidas" => 7, "puntaje" => 68, "victorias" => 6, "intento1" => 0, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 6],
-        ["jugador" => "pepe", "partidas" => 7, "puntaje" => 88, "victorias" => 9, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 2, "intento5" => 2, "intento6" => 4],
-        ["jugador" => "rama", "partidas" => 7, "puntaje" => 130, "victorias" => 7, "intento1" => 2, "intento2" => 4, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-        ["jugador" => "tania", "partidas" => 7, "puntaje" => 215, "victorias" => 14, "intento1" => 4, "intento2" => 2, "intento3" => 3, "intento4" => 3, "intento5" => 0, "intento6" => 2],
-        ["jugador" => "tomy", "partidas" => 7, "puntaje" => 121, "victorias" => 5, "intento1" => 1, "intento2" => 3, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-        ["jugador" => "oscar", "partidas" => 7, "puntaje" => 38, "victorias" => 2, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 1, "intento5" => 0, "intento6" => 0],
-        ["jugador" => "sofi", "partidas" => 7, "puntaje" => 144, "victorias" => 13, "intento1" => 0, "intento2" => 0, "intento3" => 3, "intento4" => 1, "intento5" => 1, "intento6" => 8],
-        ["jugador" => "alejo", "partidas" => 22, "puntaje" => 105, "victorias" => 12, "intento1" => 0, "intento2" => 2, "intento3" => 3, "intento4" => 1, "intento5" => 2, "intento6" => 4],
-        ["jugador" => "anita", "partidas" => 7, "puntaje" => 77, "victorias" => 6, "intento1" => 1, "intento2" => 0, "intento3" => 1, "intento4" => 1, "intento5" => 2, "intento6" => 1],
+//         ["jugador" => "juan", "partidas" => 7, "puntaje" => 55, "victorias" => 4, "intento1" => 1, "intento2" => 0, "intento3" => 2, "intento4" => 0, "intento5" => 1, "intento6" => 0],
+//         ["jugador" => "pao", "partidas" => 12, "puntaje" => 153, "victorias" => 8, "intento1" => 2, "intento2" => 1, "intento3" => 3, "intento4" => 0, "intento5" => 1, "intento6" => 1],
+//         ["jugador" => "lucas", "partidas" => 10, "puntaje" => 96, "victorias" => 7, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 6],
+//         ["jugador" => "majo", "partidas" => 3, "puntaje" => 25, "victorias" => 1, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+//         ["jugador" => "felix", "partidas" => 8, "puntaje" => 47, "victorias" => 2, "intento1" => 0, "intento2" => 1, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+//         ["jugador" => "lucio", "partidas" => 7, "puntaje" => 119, "victorias" => 11, "intento1" => 2, "intento2" => 0, "intento3" => 3, "intento4" => 2, "intento5" => 1, "intento6" => 3],
+//         ["jugador" => "seba", "partidas" => 7, "puntaje" => 68, "victorias" => 6, "intento1" => 0, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 6],
+//         ["jugador" => "pepe", "partidas" => 7, "puntaje" => 88, "victorias" => 9, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 2, "intento5" => 2, "intento6" => 4],
+//         ["jugador" => "rama", "partidas" => 7, "puntaje" => 130, "victorias" => 7, "intento1" => 2, "intento2" => 4, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+//         ["jugador" => "tania", "partidas" => 7, "puntaje" => 215, "victorias" => 14, "intento1" => 4, "intento2" => 2, "intento3" => 3, "intento4" => 3, "intento5" => 0, "intento6" => 2],
+//         ["jugador" => "tomy", "partidas" => 7, "puntaje" => 121, "victorias" => 5, "intento1" => 1, "intento2" => 3, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+//         ["jugador" => "oscar", "partidas" => 7, "puntaje" => 38, "victorias" => 2, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 1, "intento5" => 0, "intento6" => 0],
+//         ["jugador" => "sofi", "partidas" => 7, "puntaje" => 144, "victorias" => 13, "intento1" => 0, "intento2" => 0, "intento3" => 3, "intento4" => 1, "intento5" => 1, "intento6" => 8],
+//         ["jugador" => "alejo", "partidas" => 22, "puntaje" => 105, "victorias" => 12, "intento1" => 0, "intento2" => 2, "intento3" => 3, "intento4" => 1, "intento5" => 2, "intento6" => 4],
+//         ["jugador" => "anita", "partidas" => 7, "puntaje" => 77, "victorias" => 6, "intento1" => 1, "intento2" => 0, "intento3" => 1, "intento4" => 1, "intento5" => 2, "intento6" => 1],
 
-    ];
+//     ];
 
-    return ($coleccionResumenDeJugador);
-}
+//     return ($coleccionResumenDeJugador);
+// }
 
 
 
@@ -108,7 +109,7 @@ function cargarColeccionResumenDeJugador()
  * averigua si la palabra fue utilizada anteriormente
  * @param string $palabraElegida
  * @param string $jugador
- * @param string $coleccionPartida
+ * @param array $coleccionPartidas
  * @return boolean
  */
 function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
@@ -175,7 +176,6 @@ function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador
 /**
  * Muestra los detalles de una partida específica.
  * @param int $nro
- * @param int $indice
  * @param array $coleccionPartidas
  */
 function mostrarPartida($nro, $coleccionPartidas)
@@ -242,7 +242,7 @@ function buscarPrimeraPartidaGanadora($jugador, $coleccion)
  * @param string $jugador
  * @param array $coleccionPartidas
  */
-function mostrarInformacionJugador($jugador, $coleccionPartidas)
+function mostrarResumenJugador($jugador, $coleccionPartidas)
 {
     // Inicializar variables para el recuento
     $totalPartidas = 0;
@@ -352,7 +352,7 @@ function agregarPalabra($coleccionPalabras, $palabraParaAgregar)
     foreach ($coleccionPalabras as $palabra) {
         if (strtoupper($palabra) === $palabraParaAgregar) {
             $palabraExistente = true;
-            break;
+            break; // usar while
         }
     }
 
@@ -393,15 +393,22 @@ $palabraParaAgregar string
 
 */
 
+/* INSTRUCCIÓN SWITCH */
+/*
+*
+*
+*
+*
+*/
+
 // INICIALIZACIÓN DE VARIABLES 
 
 $coleccionPalabras = cargarColeccionPalabras();
 $coleccionPartidas = cargarColeccionPartidas();
-$coleccionResumenDeJugador = cargarColeccionResumenDeJugador();
 
 do {
 
-    $opcion = seleccionarOpción();
+    $opcion = seleccionarOpcion();
 
     switch ($opcion) {
 
@@ -515,7 +522,7 @@ do {
         case 5:
 
             $jugador = solicitarJugador();
-            mostrarInformacionJugador($jugador, $coleccionPartidas);
+            mostrarResumenJugador($jugador, $coleccionPartidas);
 
             do {
                 echo "\n¿Desea consultar el resumen de otro jugador? (SI/NO): ";
@@ -523,7 +530,7 @@ do {
 
                 if ($respuesta === "SI") {
                     $jugador = solicitarJugador();
-                    mostrarInformacionJugador($jugador, $coleccionPartidas);
+                    mostrarResumenJugador($jugador, $coleccionPartidas);
                 } else if ($respuesta != "NO" && $respuesta != "SI") {
                     echo "Respuesta inválida. Ingrese 'SI' si desea consultar otro resumen o 'NO' si desea volver al menú principal.\n";
                 }

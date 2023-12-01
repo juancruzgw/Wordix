@@ -30,7 +30,7 @@ const ESTADO_LETRA_PERTENECE = "pertenece";
  * Solicita un número y verifica que se encuentre en el rango fijado.
  * @param int $min
  * @param int $max
- * @return int
+ * @return int $nro
  */
 function solicitarNumeroEntre($min, $max) {
     //int $nro
@@ -468,10 +468,10 @@ function jugarWordix($palabraWordix, $nombreUsuario)
 
 /** ***COMPLETADO***
  * Solicita el nombre del jugador
- * @return string
+ * @return string $usuario
  */
 function solicitarJugador() {
-    //string $usuario
+    
     do {
         echo "Ingrese el nombre del jugador: ";
         $usuario = strtolower(trim(fgets(STDIN)));
@@ -489,7 +489,7 @@ function solicitarJugador() {
  * @return int
  */
 
-function seleccionarOpción() {
+function seleccionarOpcion() {
     //int $opcion
 
     echo "\n**************************************\n";
@@ -509,10 +509,10 @@ function seleccionarOpción() {
         echo " \nPor favor, ingrese el número de la opción deseada: ";
         $opcion = trim(fgets(STDIN));
 
-        if (!( $opcion >= 1 AND $opcion <= 8 )) {
+        if (!( $opcion >= 1 && $opcion <= 8 )) {
             echo "\nEl número ingresado no es una opción válida. Elija una opción entre 1 (uno) y 8 (ocho).\n";
         }
-    } while (!( $opcion >= 1 AND $opcion <= 8 ));
+    } while (!( $opcion >= 1 && $opcion <= 8 ));
 
     return $opcion;
 } 
