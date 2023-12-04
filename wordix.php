@@ -32,7 +32,8 @@ const ESTADO_LETRA_PERTENECE = "pertenece";
  * @param int $max
  * @return int $nro
  */
-function solicitarNumeroEntre($min, $max) {
+function solicitarNumeroEntre($min, $max)
+{
     //int $nro
     $nro = trim(fgets(STDIN));
 
@@ -134,10 +135,9 @@ function escribirMensajeBienvenida($usuario)
 }
 
 
-/**
- * ****COMPLETAR*****
+/** ****COMPLETADO*****
  * @param string $cadena
- * @return string
+ * @return boolean $esLetra
  */
 function esPalabra($cadena)
 {
@@ -153,7 +153,7 @@ function esPalabra($cadena)
 }
 
 /** ***COMPLETADO***
- * Verifica si la palabra ingresada corresponde a 5 caracteres.
+ * Verifica si la palabra ingresada es una palabra con 5 letras.
  * @return string
  */
 function leerPalabra5Letras()
@@ -353,19 +353,15 @@ function obtenerPuntajeWordix($palabraWordix, $intentos)
     //string $letras
     $puntaje = 0;
 
-    // Calcular puntaje según cantidad de intentos
     if ($intentos <= 6) {
         $puntaje += (7 - $intentos);
     }
 
-    // Calcular puntaje según letras de la palabra Wordix
     $letras = str_split(strtoupper($palabraWordix));
 
     foreach ($letras as $letra) {
-        if (ctype_alpha($letra)) {
-            $valorLetra = obtenerValorLetra($letra);
-            $puntaje += $valorLetra;
-        }
+        $valorLetra = obtenerValorLetra($letra);
+        $puntaje += $valorLetra;
     }
 
     return $puntaje;
@@ -390,25 +386,26 @@ function obtenerValorLetra($letra)
     $valorConsonanteAntesM = 2;
     $valorConsonanteDespuesM = 3;
 
-    // Verificar si la letra es una vocal
     $esVocal = false;
-    foreach ($vocales as $vocal) {
-        if (strtoupper($letra) === $vocal) {
+    $i = 0;
+    $numVocales = count($vocales);
+
+    while ($i < $numVocales && !$esVocal) {
+        if (strtoupper($letra) === $vocales[$i]) {
             $esVocal = true;
-            break;
         }
+        $i++;
     }
 
     if ($esVocal) {
         $resultado = $valorVocal;
-    } elseif (ord($letra) <= ord('M')) {
+    } else if (ord($letra) <= ord('M')) {
         $resultado = $valorConsonanteAntesM;
     } else {
         $resultado = $valorConsonanteDespuesM;
     }
     return $resultado;
 }
-
 
 
 /** ***COMPLETADO***
@@ -467,11 +464,12 @@ function jugarWordix($palabraWordix, $nombreUsuario)
 
 
 /** ***COMPLETADO***
- * Solicita el nombre del jugador
+ * Solicita el nombre del jugador y lo retorna.
  * @return string $usuario
  */
-function solicitarJugador() {
-    
+function solicitarJugador()
+{
+
     do {
         echo "Ingrese el nombre del jugador: ";
         $usuario = strtolower(trim(fgets(STDIN)));
@@ -484,12 +482,13 @@ function solicitarJugador() {
     return $usuario;
 }
 
+
 /** ***COMPLETADO***
- * Solicita un número del 1 al 8 del menu de opcion para jugar wordix.
+ * Muestra el menu de opciones del programa principal y retorna la opción elegida.
  * @return int
  */
-
-function seleccionarOpcion() {
+function seleccionarOpcion()
+{
     //int $opcion
 
     echo "\n**************************************\n";
@@ -509,15 +508,10 @@ function seleccionarOpcion() {
         echo " \nPor favor, ingrese el número de la opción deseada: ";
         $opcion = trim(fgets(STDIN));
 
-        if (!( $opcion >= 1 && $opcion <= 8 )) {
+        if (!($opcion >= 1 && $opcion <= 8)) {
             echo "\nEl número ingresado no es una opción válida. Elija una opción entre 1 (uno) y 8 (ocho).\n";
         }
-    } while (!( $opcion >= 1 && $opcion <= 8 ));
+    } while (!($opcion >= 1 && $opcion <= 8));
 
     return $opcion;
-} 
- 
-
-
-
-
+}

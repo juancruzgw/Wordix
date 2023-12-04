@@ -72,40 +72,39 @@ function cargarColeccionPartidas()
 
 
 /**
- * EXPLICAR POR QUE USABAMOS ESTO!!!!!!!
  * jugador, partidas, puntaje, victorias, intento1, intento2, intento3, intento4, intento5, intento6.
  * Obtiene una colección resumenes de jugadores
  * @return array
  */
-// function cargarColeccionResumenDeJugador()
-// {
-//     $coleccionResumenDeJugador = [
+function cargarColeccionResumenDeJugador()
+{
+    $coleccionResumenDeJugador = [
 
-//         ["jugador" => "juan", "partidas" => 7, "puntaje" => 55, "victorias" => 4, "intento1" => 1, "intento2" => 0, "intento3" => 2, "intento4" => 0, "intento5" => 1, "intento6" => 0],
-//         ["jugador" => "pao", "partidas" => 12, "puntaje" => 153, "victorias" => 8, "intento1" => 2, "intento2" => 1, "intento3" => 3, "intento4" => 0, "intento5" => 1, "intento6" => 1],
-//         ["jugador" => "lucas", "partidas" => 10, "puntaje" => 96, "victorias" => 7, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 6],
-//         ["jugador" => "majo", "partidas" => 3, "puntaje" => 25, "victorias" => 1, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-//         ["jugador" => "felix", "partidas" => 8, "puntaje" => 47, "victorias" => 2, "intento1" => 0, "intento2" => 1, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-//         ["jugador" => "lucio", "partidas" => 7, "puntaje" => 119, "victorias" => 11, "intento1" => 2, "intento2" => 0, "intento3" => 3, "intento4" => 2, "intento5" => 1, "intento6" => 3],
-//         ["jugador" => "seba", "partidas" => 7, "puntaje" => 68, "victorias" => 6, "intento1" => 0, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 6],
-//         ["jugador" => "pepe", "partidas" => 7, "puntaje" => 88, "victorias" => 9, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 2, "intento5" => 2, "intento6" => 4],
-//         ["jugador" => "rama", "partidas" => 7, "puntaje" => 130, "victorias" => 7, "intento1" => 2, "intento2" => 4, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-//         ["jugador" => "tania", "partidas" => 7, "puntaje" => 215, "victorias" => 14, "intento1" => 4, "intento2" => 2, "intento3" => 3, "intento4" => 3, "intento5" => 0, "intento6" => 2],
-//         ["jugador" => "tomy", "partidas" => 7, "puntaje" => 121, "victorias" => 5, "intento1" => 1, "intento2" => 3, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
-//         ["jugador" => "oscar", "partidas" => 7, "puntaje" => 38, "victorias" => 2, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 1, "intento5" => 0, "intento6" => 0],
-//         ["jugador" => "sofi", "partidas" => 7, "puntaje" => 144, "victorias" => 13, "intento1" => 0, "intento2" => 0, "intento3" => 3, "intento4" => 1, "intento5" => 1, "intento6" => 8],
-//         ["jugador" => "alejo", "partidas" => 22, "puntaje" => 105, "victorias" => 12, "intento1" => 0, "intento2" => 2, "intento3" => 3, "intento4" => 1, "intento5" => 2, "intento6" => 4],
-//         ["jugador" => "anita", "partidas" => 7, "puntaje" => 77, "victorias" => 6, "intento1" => 1, "intento2" => 0, "intento3" => 1, "intento4" => 1, "intento5" => 2, "intento6" => 1],
+        ["jugador" => "juan", "partidas" => 7, "puntaje" => 55, "victorias" => 4, "intento1" => 1, "intento2" => 0, "intento3" => 2, "intento4" => 0, "intento5" => 1, "intento6" => 0],
+        ["jugador" => "pao", "partidas" => 12, "puntaje" => 153, "victorias" => 8, "intento1" => 2, "intento2" => 1, "intento3" => 3, "intento4" => 0, "intento5" => 1, "intento6" => 1],
+        ["jugador" => "lucas", "partidas" => 10, "puntaje" => 96, "victorias" => 7, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 6],
+        ["jugador" => "majo", "partidas" => 3, "puntaje" => 25, "victorias" => 1, "intento1" => 0, "intento2" => 0, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "felix", "partidas" => 8, "puntaje" => 47, "victorias" => 2, "intento1" => 0, "intento2" => 1, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "lucio", "partidas" => 7, "puntaje" => 119, "victorias" => 11, "intento1" => 2, "intento2" => 0, "intento3" => 3, "intento4" => 2, "intento5" => 1, "intento6" => 3],
+        ["jugador" => "seba", "partidas" => 7, "puntaje" => 68, "victorias" => 6, "intento1" => 0, "intento2" => 0, "intento3" => 0, "intento4" => 0, "intento5" => 0, "intento6" => 6],
+        ["jugador" => "pepe", "partidas" => 7, "puntaje" => 88, "victorias" => 9, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 2, "intento5" => 2, "intento6" => 4],
+        ["jugador" => "rama", "partidas" => 7, "puntaje" => 130, "victorias" => 7, "intento1" => 2, "intento2" => 4, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "tania", "partidas" => 7, "puntaje" => 215, "victorias" => 14, "intento1" => 4, "intento2" => 2, "intento3" => 3, "intento4" => 3, "intento5" => 0, "intento6" => 2],
+        ["jugador" => "tomy", "partidas" => 7, "puntaje" => 121, "victorias" => 5, "intento1" => 1, "intento2" => 3, "intento3" => 1, "intento4" => 0, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "oscar", "partidas" => 7, "puntaje" => 38, "victorias" => 2, "intento1" => 1, "intento2" => 0, "intento3" => 0, "intento4" => 1, "intento5" => 0, "intento6" => 0],
+        ["jugador" => "sofi", "partidas" => 7, "puntaje" => 144, "victorias" => 13, "intento1" => 0, "intento2" => 0, "intento3" => 3, "intento4" => 1, "intento5" => 1, "intento6" => 8],
+        ["jugador" => "alejo", "partidas" => 22, "puntaje" => 105, "victorias" => 12, "intento1" => 0, "intento2" => 2, "intento3" => 3, "intento4" => 1, "intento5" => 2, "intento6" => 4],
+        ["jugador" => "anita", "partidas" => 7, "puntaje" => 77, "victorias" => 6, "intento1" => 1, "intento2" => 0, "intento3" => 1, "intento4" => 1, "intento5" => 2, "intento6" => 1],
 
-//     ];
+    ];
 
-//     return ($coleccionResumenDeJugador);
-// }
+    return ($coleccionResumenDeJugador);
+}
 
 
 
 /** ***COMPLETADO***
- * averigua si la palabra fue utilizada anteriormente
+ * Determina con true o false si la palabra ya fue jugada por el jugador.
  * @param string $palabraElegida
  * @param string $jugador
  * @param array $coleccionPartidas
@@ -113,18 +112,23 @@ function cargarColeccionPartidas()
  */
 function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
 {
-
-
     $rta = false;
+    $numPartidas = count($coleccionPartidas);
+    $i = 0;
 
-    foreach ($coleccionPartidas as $partida) {
+    while ($i < $numPartidas && !$rta) {
+        $partida = $coleccionPartidas[$i];
+        
         if ($partida["palabraWordix"] == $palabraElegida && $partida["jugador"] == $jugador) {
             $rta = true;
         }
+
+        $i++;
     }
 
     return $rta;
 }
+
 
 
 /** ***COMPLETADO***
@@ -150,11 +154,8 @@ function guardarPartida($partidaParaGuardar, $coleccionPartidas)
  */
 function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador)
 {
-
-
     $palabrasJugadas = [];
     $palabrasDisponibles = [];
-
 
     foreach ($coleccionPartidas as $partida) {
         if ($partida['jugador'] === $jugador) {
@@ -182,8 +183,6 @@ function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador
  */
 function mostrarPartida($nro, $coleccionPartidas)
 {
-
-
     $indice = $nro - 1;
     $partida = $coleccionPartidas[$indice];
 
@@ -206,15 +205,13 @@ function mostrarPartida($nro, $coleccionPartidas)
 
 
 /** ***COMPLETADO***
- * Devuelve el índice de la primera partida ganadora y si el jugador no ganó ninguna partida, devuelve -1.
+ * Devuelve el índice de la primera partida ganadora y si el jugador no ganó ninguna partida,devuelve -1. En caso de no registrar partidas jugadas, devuelve -2.
  * @param string $jugador
  * @param array $coleccion
  * @return int
  */
 function buscarPrimeraPartidaGanadora($jugador, $coleccion)
 {
-
-
     $partidaEncontrada = false;
     $partidaNoGanada = false;
     $indice = 0;
@@ -248,57 +245,78 @@ function buscarPrimeraPartidaGanadora($jugador, $coleccion)
  * Muestra información detallada de un jugador.
  * @param string $jugador
  * @param array $coleccionPartidas
+ * @return array $resumenJugador
  */
 function mostrarResumenJugador($jugador, $coleccionPartidas)
 {
-
-    // Inicializar variables para el recuento
     $totalPartidas = 0;
     $totalPuntaje = 0;
     $totalVictorias = 0;
+    $intentosAdivinados = [];
 
-    // Inicializar array para los intentos adivinados
-    $intentosAdivinados = array_fill(1, 6, 0);
+    for ($i = 0; $i <= 6; $i++) {
+        $intentosAdivinados[$i] = 0;
+    }
 
-    // Recorrer todas las partidas
     foreach ($coleccionPartidas as $partida) {
-        // Verificar si la partida es del jugador actual
+
         if ($partida['jugador'] === $jugador) {
             $totalPartidas++;
 
-            // Sumar puntaje
             $totalPuntaje += $partida['puntaje'];
 
-            // Determinar si la partida es ganada (puntaje distinto de cero)
             if ($partida['puntaje'] > 0) {
                 $totalVictorias++;
             }
 
-            // Incrementar el contador de intentos adivinados solo si hay intentos
             if ($partida['intentos'] > 0 && $partida['intentos'] <= 6) {
                 $intentosAdivinados[$partida['intentos']]++;
             }
         }
     }
 
-    if ($totalPartidas > 0) {
-        $porcentajeVictorias = ($totalVictorias / $totalPartidas) * 100;
+    $resumenJugador['jugador'] = $jugador;
+    $resumenJugador['partidas'] = $totalPartidas;
+    $resumenJugador['puntaje'] = $totalPuntaje;
+    $resumenJugador['victorias'] = $totalVictorias;
+    $resumenJugador['intento1'] = $intentosAdivinados[1];
+    $resumenJugador['intento2'] = $intentosAdivinados[2];
+    $resumenJugador['intento3'] = $intentosAdivinados[3];
+    $resumenJugador['intento4'] = $intentosAdivinados[4];
+    $resumenJugador['intento5'] = $intentosAdivinados[5];
+    $resumenJugador['intento6'] = $intentosAdivinados[6];
+
+    return $resumenJugador;
+}
+
+
+/** ***COMPLETADO***
+ * Imprime el resumen de un jugador.
+ * @param array $resumenJugador
+ */
+function imprimirResumen($resumenJugador)
+{
+
+    if ($resumenJugador['partidas'] > 0) {
+
+        $porcentajeVictorias = ($resumenJugador['victorias'] / $resumenJugador['partidas']) * 100;
 
         echo "\n************************************\n";
-        echo "Jugador: $jugador\n";
-        echo "Partidas: $totalPartidas\n";
-        echo "Puntaje Total: $totalPuntaje\n";
-        echo "Victorias: $totalVictorias\n";
-        echo "Porcentaje Victorias: " . round($porcentajeVictorias, 2) . "%\n";
+        echo "Jugador: " . $resumenJugador['jugador'] . "\n";
+        echo "Partidas: " . $resumenJugador['partidas'] . "\n";
+        echo "Puntaje Total: " . $resumenJugador['puntaje'] . "\n";
+        echo "Victorias: " . $resumenJugador['victorias'] . "\n";
+        echo "Porcentaje Victorias: " . round($porcentajeVictorias, 2) . " %\n";
         echo "Adivinadas:\n";
 
-        for ($i = 1; $i <= 6; $i++) {
-            echo "-Intento $i: " . $intentosAdivinados[$i] . "\n";
+        for ($i = 0; $i <= 5; $i++) {
+            echo "-Intento " . ($i + 1) . ": " . $resumenJugador["intento" . ($i + 1)] . "\n";
         }
 
         echo "************************************\n";
     } else {
-        echo "\nEl jugador $jugador no registra partidas guardadas.\n";
+
+        echo "\nEl jugador " . $resumenJugador['jugador'] . " no registra partidas guardadas.\n";
     }
 }
 
@@ -313,7 +331,6 @@ function mostrarResumenJugador($jugador, $coleccionPartidas)
 function compararPorJugadorPalabra($partida1, $partida2)
 {
 
-    // Primero, comparar por jugador usando el operador ==
     if ($partida1['jugador'] == $partida2['jugador']) {
         $resultado = 0;
     } else if ($partida1['jugador'] < $partida2['jugador']) {
@@ -322,7 +339,7 @@ function compararPorJugadorPalabra($partida1, $partida2)
         $resultado = 1;
     }
 
-    // Si los jugadores son iguales, comparar por palabra
+
     if ($resultado === 0) {
         $resultado = ($partida1['palabraWordix'] == $partida2['palabraWordix']) ? 0 : (($partida1['palabraWordix'] < $partida2['palabraWordix']) ? -1 : 1);
     }
@@ -340,7 +357,7 @@ function listadoOrdenadoDePartidas($coleccionPartidas)
     // uasort — Ordena un array con una función de comparación definida por el usuario y mantiene la asociación de índices.
     uasort($coleccionPartidas, 'compararPorJugadorPalabra');
 
-    // print_r — Imprime información legible para humanos sobre una variable
+    // print_r — Imprime información legible para humanos sobre una variable.
     echo "\n***Listado ordenado por jugador y palabra***\n";
     print_r($coleccionPartidas);
 }
@@ -354,14 +371,15 @@ function listadoOrdenadoDePartidas($coleccionPartidas)
  */
 function agregarPalabra($coleccionPalabras, $palabraParaAgregar)
 {
-
     $palabraExistente = false;
+    $i = 0;
+    $numPalabras = count($coleccionPalabras);
 
-    foreach ($coleccionPalabras as $palabra) {
-        if (strtoupper($palabra) === $palabraParaAgregar) {
+    while ($i < $numPalabras && !$palabraExistente) {
+        if (strtoupper($coleccionPalabras[$i]) === strtoupper($palabraParaAgregar)) {
             $palabraExistente = true;
-            break; // usar while
         }
+        $i++;
     }
 
     if ($palabraExistente) {
@@ -407,12 +425,9 @@ $palabraYaUtilizada booleana
 
 */
 
-/* INSTRUCCIÓN SWITCH */
-/*
-*
-*
-*
-*
+/* INSTRUCCIÓN SWITCH:
+ * La sentencia switch es similar a una serie de sentencias IF en la misma expresión. En muchas ocasiones, es posible que se quiera comparar
+ * la misma variable (o expresion) con muchos valores diferentes, y ejecutar una parte de código distinta dependiendo de a que valor es igual.
 */
 
 // INICIALIZACIÓN DE VARIABLES 
@@ -424,9 +439,6 @@ do {
 
     $opcion = seleccionarOpcion();
 
-    /* La sentencia switch es similar a una serie de sentencias IF en la misma expresión. En muchas ocasiones, es posible que se quiera comparar
-    / la misma variable (o expresion) con muchos valores diferentes, y ejecutar una parte de código distinta dependiendo de a que valor es igual.
-    / Para esto es exactamente la expresión switch.*/
     switch ($opcion) {
 
         case 1:
@@ -451,8 +463,6 @@ do {
 
             $coleccionPartidas = guardarPartida($partida, $coleccionPartidas);
 
-            // print_r($partidasGuardadas);
-
             break;
 
         case 2:
@@ -474,8 +484,6 @@ do {
             $partida = jugarWordix($palabraAleatoria, $usuario);
 
             $coleccionPartidas = guardarPartida($partida, $coleccionPartidas);
-
-            //print_r($partidasGuardadas);
 
             break;
 
@@ -539,16 +547,24 @@ do {
         case 5:
 
             $jugador = solicitarJugador();
-            mostrarResumenJugador($jugador, $coleccionPartidas);
+            $resumenJugador = mostrarResumenJugador($jugador, $coleccionPartidas);
+
+            $coleccionResumenDeJugador[] = $resumenJugador;
+
+            imprimirResumen($resumenJugador);
 
             do {
                 echo "\n¿Desea consultar el resumen de otro jugador? (SI/NO): ";
                 $respuesta = strtoupper(trim(fgets(STDIN)));
 
                 if ($respuesta === "SI") {
+
                     $jugador = solicitarJugador();
-                    mostrarResumenJugador($jugador, $coleccionPartidas);
+                    $resumenJugador = mostrarResumenJugador($jugador, $coleccionPartidas);
+                    $coleccionResumenDeJugador[] = $resumenJugador;
+                    imprimirResumen($resumenJugador);
                 } else if ($respuesta != "NO" && $respuesta != "SI") {
+
                     echo "Respuesta inválida. Ingrese 'SI' si desea consultar otro resumen o 'NO' si desea volver al menú principal.\n";
                 }
             } while ($respuesta !== "NO");
@@ -562,7 +578,6 @@ do {
 
         case 7:
 
-            // Obtener una palabra de 5 letras del usuario
             $nuevaPalabra = leerPalabra5Letras();
 
             $coleccionPalabras = agregarPalabra($coleccionPalabras, $nuevaPalabra);
