@@ -32,7 +32,7 @@ Martinez Sepulveda, Lucio D **  FAI-4901  **    TUDW    **  lucio.martinez@est.f
 function cargarColeccionPalabras()
 
 {
-    // array $coleccionPalabras
+
     $coleccionPalabras = [
         "MUJER", "QUESO", "FUEGO", "CASAS", "RASGO",
         "GATOS", "GOTAS", "HUEVO", "TINTO", "NAVES",
@@ -50,7 +50,6 @@ function cargarColeccionPalabras()
  */
 function cargarColeccionPartidas()
 {
-    //array $coleccionPartidas
 
     $coleccion = [];
     $pa1 = ["palabraWordix" => "SUECO", "jugador" => "kleiton", "intentos" => 0, "puntaje" => 0];
@@ -114,6 +113,8 @@ function cargarColeccionPartidas()
  */
 function palabraYaUtilizada($palabraElegida, $jugador, $coleccionPartidas)
 {
+
+
     $rta = false;
 
     foreach ($coleccionPartidas as $partida) {
@@ -140,7 +141,7 @@ function guardarPartida($partidaParaGuardar, $coleccionPartidas)
 }
 
 
-/**
+/** ***COMPLETADO***    
  * Elige una palabra aleatoria de coleccionPalabras y verifica si el jugador ya jugó con esa palabra.
  * @param array $coleccionPalabras
  * @param array $coleccionPartidas
@@ -149,7 +150,8 @@ function guardarPartida($partidaParaGuardar, $coleccionPartidas)
  */
 function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador)
 {
-    // array $palabrasJugadas, $palabrasDisponibles
+
+
     $palabrasJugadas = [];
     $palabrasDisponibles = [];
 
@@ -173,13 +175,15 @@ function elegirPalabraAleatoria($coleccionPalabras, $coleccionPartidas, $jugador
 
 
 
-/**
+/** ***COMPLETADO***    
  * Muestra los detalles de una partida específica.
  * @param int $nro
  * @param array $coleccionPartidas
  */
 function mostrarPartida($nro, $coleccionPartidas)
 {
+
+
     $indice = $nro - 1;
     $partida = $coleccionPartidas[$indice];
 
@@ -201,13 +205,16 @@ function mostrarPartida($nro, $coleccionPartidas)
 
 
 
-/**
+/** ***COMPLETADO***
  * Devuelve el índice de la primera partida ganadora y si el jugador no ganó ninguna partida, devuelve -1.
  * @param string $jugador
  * @param array $coleccion
+ * @return int
  */
 function buscarPrimeraPartidaGanadora($jugador, $coleccion)
 {
+
+
     $partidaEncontrada = false;
     $partidaNoGanada = false;
     $indice = 0;
@@ -237,13 +244,14 @@ function buscarPrimeraPartidaGanadora($jugador, $coleccion)
 
 
 
-/**
+/** ***COMPLETADO***
  * Muestra información detallada de un jugador.
  * @param string $jugador
  * @param array $coleccionPartidas
  */
 function mostrarResumenJugador($jugador, $coleccionPartidas)
 {
+
     // Inicializar variables para el recuento
     $totalPartidas = 0;
     $totalPuntaje = 0;
@@ -296,7 +304,7 @@ function mostrarResumenJugador($jugador, $coleccionPartidas)
 
 
 
-/**
+/** ***COMPLETADO***
  * Función de comparación para ordenar por jugador y por palabra
  * @param array $partida1
  * @param array $partida2
@@ -304,7 +312,7 @@ function mostrarResumenJugador($jugador, $coleccionPartidas)
  */
 function compararPorJugadorPalabra($partida1, $partida2)
 {
-    //int $resultado
+
     // Primero, comparar por jugador usando el operador ==
     if ($partida1['jugador'] == $partida2['jugador']) {
         $resultado = 0;
@@ -321,7 +329,7 @@ function compararPorJugadorPalabra($partida1, $partida2)
     return $resultado;
 }
 
-/**
+/** ***COMPLETADO***
  * Muestra el listado de partidas ordenadas alfabéticamente por jugador y por palabra.
  * Utiliza la función uasort de PHP para ordenar la estructura.
  * @param array $coleccionPartidas
@@ -338,7 +346,7 @@ function listadoOrdenadoDePartidas($coleccionPartidas)
 }
 
 
-/**
+/** ***COMPLETADO***
  * Agrega una palabra de 5 letras a la colección de palabras Wordix.
  * @param array $coleccionPalabras
  * @param string $palabraParaAgregar
@@ -378,18 +386,24 @@ function agregarPalabra($coleccionPalabras, $palabraParaAgregar)
 -DECLARACION DE VARIABLES:
 
 $opcion INT
-$usuario string
-$numero INT
-$palabraElegida String
-$palabraYaUtilizada booleana
-$partidaGuardada array
-$palabraAleatoria string
 $nroPartida INT
-$interactivo string
 $indicePartida INT
+$numero INT
+$usuario string
+$palabraAleatoria string
+$interactivo string
 $respuesta string
 $jugador string
 $palabraParaAgregar string
+$usuario string
+$palabraElegida String
+$nuevaPalabra string
+$partidaGuardada array
+$partida array
+$coleccionPartidas array
+$primerPartidaGanada array
+$collecionPalabras array
+$palabraYaUtilizada booleana
 
 */
 
